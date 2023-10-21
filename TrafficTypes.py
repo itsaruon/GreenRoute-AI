@@ -11,4 +11,13 @@ def numCars(world,location, radius = 100):
         print("Could not fetch data. Error: {e}")
         return[]
 
-
+def getSpeed(Cars):
+    if len(Cars) == 0:
+        return 0
+    else:
+        try:
+            totalVelocity = sum(car.get_velocity().length() for car in Cars)
+            return totalVelocity / (len(Cars))
+        except Exception as e: #error calculating
+            print("Could not get average velocity. error message: {e}")
+            return 0
