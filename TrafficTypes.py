@@ -21,3 +21,7 @@ def getSpeed(Cars):
         except Exception as e: #error calculating
             print("Could not get average velocity. error message: {e}")
             return 0
+        
+def traffic(world,location,radius = 100):
+    closeVehicles = numCars(world, location, radius)
+    averageVal = getSpeed(closeVehicles)
