@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Real-Time Traffic Map</title>
+    <title>GreenRoute AI - Real-Time Traffic Map</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Style for the title */
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        /* Style for the map container */
+        #map {
+            height: 600px;
+            margin: 0 auto;
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
-    <div id="map" style="height: 500px;"></div>
+    <div class="title">GreenRoute AI - Real-Time Traffic Map</div>
+    <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="main.js"></script>
 </body>
