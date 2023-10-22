@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function(){
+function initMap(){
     GenerateMap();
-});
+}
 
 function GenerateMap(){
     var directions = new google.maps.DirectionsService();
@@ -12,21 +12,25 @@ function GenerateMap(){
         center: {lat: 42.7325, lng: -84.5555}
     });
     render.setMap(map);
-    render.setMap(map);
+    getTraffic.setMap(map);
 
     getRoute(directions,render);
 
 }  
 
-function getRoute(getDirections, renderDirections){
+function getRoute(directions, render){
     directions.route({
         origin: '220 Trowbridge Rd, East Lansing, MI 48824',
-        to: '4901 Evergreen Rd, Dearborn, MI 48128',
+        destination: '4901 Evergreen Rd, Dearborn, MI 48128',
         travelMode: 'DRIVING'
-    }),
-    function(response){
-      renderDirections.getDirections(response);
+    },
+    function(response, status){
+    if (status === 'OK'){
+        render.setDirections(response);
     }
+     else{
+        console.error('Could not get directions. Error: ' + status)
+     } 
+    });
     
 }
-GenerateMap();
