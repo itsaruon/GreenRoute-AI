@@ -23,14 +23,17 @@ def getSpeed(Cars):
             return 0
         
 def traffic(world,location,radius = 100):
-    closeVehicles = numCars(world, location, radius)
-    averageVel = getSpeed(closeVehicles)
+    try:
+        closeVehicles = numCars(world, location, radius)
+        averageVel = getSpeed(closeVehicles)
 
-    if closeVehicles > 25 and averageVel < 15:
-        return "heavy traffic"
-    elif closeVehicles < 5 and averageVel > 18:
-        return "light traffic"
-    elif closeVehicles > 20 and averageVel < 3:
-        return "blocked pathway, too much traffic"
-    else:
-        return "Good traffic conditions"
+        if closeVehicles > 25 and averageVel < 15:
+            return "heavy traffic"
+        elif closeVehicles < 5 and averageVel > 18:
+            return "light traffic"
+        elif closeVehicles > 20 and averageVel < 3:
+            return "blocked pathway, too much traffic"
+        else:
+            return "Good traffic conditions"
+    except Exception as e:
+        print("Cannot figure out level to traffic. error message: {e}")
