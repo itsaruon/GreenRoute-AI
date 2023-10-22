@@ -25,3 +25,6 @@ def getSpeed(Cars):
 def traffic(world,location,radius = 100):
     closeVehicles = numCars(world, location, radius)
     averageVal = getSpeed(closeVehicles)
+
+    if closeVehicles > 25 and averageVal < 15:
+        return "heavy traffic"
